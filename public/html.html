@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epileptic Seizure Detection</title>
+    <style>
+        /* Remove default margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styling to ensure no extra white space */
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Container styling */
+        .container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            background-image: url('1.jpg'); /* Update path as needed */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 20px;
+        }
+
+        /* Darker overlay styling */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+        }
+
+        /* Header bar for logo and about link */
+        .header-bar {
+            position: absolute;
+            top: 7%;
+            width: 100%;
+            padding: 0 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 2;
+            font-family: 'Questrial', sans-serif;
+            color: #00d4ff;
+        }
+
+        /* Logo styling */
+        .logo {
+            font-size: 2vw;
+            font-weight: bold;
+            color: #00d4ff;
+            text-decoration: none;
+        }
+
+        /* About link styling */
+        .about-link {
+            font-size: 1.5vw;
+            color: #00d4ff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .about-link:hover {
+            color: #00b4e5;
+        }
+
+        /* Main header styling */
+        .main-header {
+            position: relative;
+            top: 2%;
+            left: 5%;
+            color: #f3f3f3;
+            font-size: 6.5vw;
+            font-weight: 600;
+            font-family: "Questrial", sans-serif;
+            z-index: 2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            line-height: 0.9;
+        }
+
+        /* Subtext styling with typing effect */
+        .subtext {
+            position: relative;
+            top: 0%;
+            left: 5%;
+            font-size: 1.8vw;
+            font-weight: 400;
+            font-family: "Questrial", sans-serif;
+            z-index: 2;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 3px solid #ffffff;
+            animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
+            line-height: 3;
+        }
+
+        /* Typing effect */
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 45vw; }
+        }
+
+        /* Blinking cursor effect */
+        @keyframes blink-caret {
+            50% { border-color: transparent; }
+        }
+
+        /* Get Started button styling */
+        .button-container {
+            position: absolute;
+            bottom: 8%;
+            right: 5%;
+            z-index: 2;
+        }
+
+        .get-started-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 15px 25px;
+            font-size: 1.5vw;
+            background: linear-gradient(135deg, #007bff, #00d4ff);
+            color: #ffffff;
+            cursor: pointer;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 5px 10px rgba(0, 123, 255, 0.3);
+            transition: background 0.3s ease, transform 0.3s ease;
+            text-decoration: none;
+            }
+
+        .get-started-button:hover {
+            background: linear-gradient(135deg, #0056d4, #00b4e5);
+            transform: scale(1.05);
+        }
+
+        /* Arrow icon styling */
+        .get-started-button span {
+            margin-left: 10px;
+            font-size: 1.5vw;
+            transition: margin-left 0.3s ease;
+        }
+
+        .get-started-button:hover span {
+            margin-left: 15px;
+        }
+
+        /* Media queries for responsive design */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 4vw;
+            }
+            .about-link {
+                font-size: 3.5vw;
+            }
+            .main-header {
+                font-size: 7vw;
+            }
+            .subtext {
+                font-size: 3.5vw;
+            }
+            .get-started-button {
+                font-size: 3vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Dark overlay for darker background effect -->
+        <div class="overlay"></div>
+
+        <!-- Header bar with logo on the left and About link on the right -->
+        <div class="header-bar">
+            <a href="html.html" class="logo">SeizureSense</a>
+            <a href="about.html" class="about-link">About</a>
+        </div>
+
+        <!-- Main header for detection text, aligned left and split into two lines -->
+        <div class="main-header">
+            EPILEPTIC SEIZURE <br> DETECTION
+        </div>
+
+        <!-- Subtext with typing effect, positioned below the main header -->
+        <div class="subtext">“Empowering you with technology for a safer tomorrow”.</div>
+
+        <!-- Button container with Get Started button aligned to the bottom right corner -->
+        <div class="button-container">
+            <a href="form.html" class="get-started-button">Get Started <span>&rarr;</span></a>
+        </div>
+    </div>
+</body>
+</html>

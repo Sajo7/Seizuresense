@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body, html {
+            width: 100%;
+            height: 100%;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            width: 80%;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            margin-top: 15px;
+            font-size: 18px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Prediction Result</h1>
+        <p id="prediction-result">Fetching prediction result...</p>
+        <p id="advice">Fetching preventive measures...</p>
+    </div>
+    <script>
+        async function fetchPrediction() {
+            try {
+                const response = await fetch('/upload', {
+                    method: 'POST',
+                    body: new FormData() // Ensure proper file upload setup
+                });
+
+                const result = await response.json();
+                document.getElementById('prediction-result').innerText = `Prediction Result: ${result.predictionResult}`;
+                document.getElementById('advice').innerText = `Preventive Measures: ${result.advice}`;
+            } catch (error) {
+                console.error('Error fetching prediction:', error);
+                document.getElementById('prediction-result').innerText = 'Error fetching prediction result.';
+                document.getElementById('advice').innerText = '';
+            }
+        }
+
+        fetchPrediction();
+    </script>
+</body>
+</html>
