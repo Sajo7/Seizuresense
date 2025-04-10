@@ -135,6 +135,9 @@ app.post('/submit', (req, res) => {
 });
 
 // Start server
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'html.html'));
+});
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
